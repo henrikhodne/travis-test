@@ -2,7 +2,10 @@ var assert = require('assert'),
     vows = require('vows'),
     seriousCalculations = require('../');
 
+
+
 vows.describe('serious-calculations').addBatch({
+
   'When performing serious calculations': {
     topic: seriousCalculations.performSeriousCalculations(4),
     'result should be valid': function (result) {
@@ -10,5 +13,14 @@ vows.describe('serious-calculations').addBatch({
       assert.equal(result, 8);
     }
   }
+
+  'When performing an other calculations': {
+    topic: seriousCalculations.wng_hello_world('foo'),
+    'result should be valid': function (result) {
+      assert.isString(result);
+      assert.equal(result, 'class { foo }');
+    }
+  }
+
 }).export(module);
 
